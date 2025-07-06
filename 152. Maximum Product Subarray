@@ -1,0 +1,27 @@
+class Solution:
+    def maxProduct(self, nums: List[int]) -> int:
+        max_so_far = nums[0]
+        min_so_far = nums[0]
+        result = nums[0]
+        for i in range(1, len(nums)):
+            num = nums[i]
+            prev_max = max_so_far
+            prev_min = min_so_far
+            if num < 0:
+                temp = prev_max
+                prev_max = prev_min
+                prev_min = temp
+                
+            if num > prev_max * num:
+                max_so_far = num
+            else:
+                max_so_far = prev_max * num
+
+            if num < prev_min * num:
+                min_so_far = num
+            else:
+                min_so_far = prev_min * num
+
+            if max_so_far > result:
+                result = max_so_far
+        return result
