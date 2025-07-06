@@ -1,0 +1,17 @@
+class Solution:
+    def rotate(self, nums: List[int], k: int) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        n=len(nums)
+        k = k % n  
+        m = n - k
+
+        left = nums[:m]
+        right = nums[m:]
+
+        new_ar = right + left  
+
+        
+        for i in range(n):
+            nums[i] = new_ar[i]
