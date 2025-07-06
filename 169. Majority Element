@@ -1,1 +1,17 @@
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        freq={}
+        for num in nums:
+            if num in freq:
+                freq[num]+=1
+            else:
+                freq[num]=1
+        max=0
+        max_ele=0
+        for key in freq:
+            if freq[key]>max:
+                max=freq[key]
+                max_ele=key
+        return max_ele
+
 
